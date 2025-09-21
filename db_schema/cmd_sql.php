@@ -5,41 +5,43 @@ $deleteDB = 'DROP DATABASE IF EXISTS '.DB_NAME.';';
 $criarDB = 'CREATE DATABASE IF NOT EXISTS '.DB_NAME.';';
 $usarDB = 'USE '.DB_NAME.';';
 
+
 $crearTabela = "
-    CREATE TABLE IF NOT EXISTS Tarefas (
+    CREATE TABLE IF NOT EXISTS Obras 
+    (
         id INT AUTO_INCREMENT PRIMARY KEY,
         titulo VARCHAR(255) NOT NULL,
+        autor VARCHAR(255) NOT NULL,
         descricao TEXT,
         inicio DATE,
         fim DATE,
         `status` ENUM('pendente', 'em andamento', 'concluida') DEFAULT 'pendente',
         createAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         updateAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-    );
-";
+    );";
+        
+    $insertDados = "
+        INSERT INTO Obras (titulo, autor, descricao, inicio, fim, `status`) VALUES
+        ('Mona Lisa', 'Leonardo da Vinci', 'Retrato enigmático de uma mulher com um sorriso sutil, considerada a pintura mais famosa do mundo.', '1503-01-01', '1519-05-02', 'concluida'),
+        ('Liberdade Guiando o Povo', 'Eugène Delacroix', 'Pintura alegórica da Revolução de Julho na França, simbolizando a luta pela liberdade.', '1830-07-01', '1830-10-01', 'concluida'),
+        ('O Grito', 'Edvard Munch', 'Obra expressionista que retrata angústia e desespero em uma figura gritando sob um céu vermelho.', '1893-01-01', '1893-01-01', 'concluida'),
+        ('A Noite Estrelada', 'Vincent van Gogh', 'Pintura pós-impressionista que mostra o céu noturno turbulento sobre uma vila tranquila.', '1889-06-01', '1889-06-18', 'concluida'),
+        ('A Criação de Adão', 'Michelangelo', 'Fresco do teto da Capela Sistina representando Deus dando vida a Adão.', '1511-01-01', '1512-10-31', 'concluida'),
+        ('O Nascimento de Vênus', 'Sandro Botticelli', 'Pintura renascentista que representa a deusa Vênus emergindo do mar em uma concha.', '1484-01-01', '1486-01-01', 'concluida'),
+        ('A Última Ceia', 'Leonardo da Vinci', 'Representação da última refeição de Jesus com seus apóstolos antes da crucificação.', '1495-01-01', '1498-01-01', 'concluida');
+        ";
+        
 
-$insertDados = "
-    INSERT INTO Tarefas (titulo, descricao, inicio, fim, `status`) VALUES
-    ('Comprar mantimentos', 'Comprar frutas, vegetais e pão', '2024-06-01', '2024-06-01', 'pendente'),
-    ('Reunião com equipe', 'Discutir o progresso do projeto', '2024-06-02', '2024-06-02', 'em andamento'),
-    ('Enviar relatório', 'Enviar o relatório mensal para o gerente', '2024-06-03', '2024-06-03', 'concluida'),
-    ('Limpar a casa', 'Fazer uma limpeza geral na casa', '2024-06-04', '2024-06-04', 'pendente'),
-    ('Exercício físico', 'Ir à academia para um treino de 1 hora', '2024-06-05', '2024-06-05', 'em andamento'),
-    ('Ler um livro', 'Ler pelo menos 50 páginas do livro atual', '2024-06-06', '2024-06-06', 'concluida'),
-    ('Planejar viagem', 'Pesquisar destinos e fazer reservas', '2024-06-07', '2024-06-07', 'pendente'),
-    ('Atualizar software', 'Instalar as últimas atualizações do sistema', '2024-06-08', '2024-06-08', 'em andamento'),
-    ('Visitar amigos', 'Marcar um encontro com amigos para jantar', '2024-06-09', '2024-06-09', 'concluida'),
-    ('Organizar documentos', 'Arquivar documentos importantes e descartar o que não é necessário', '2024-06-10', '2024-06-10', 'pendente');
-";
 
+        
+
+$pdo = null;
 try {
+    var_dump(DB_HOST ,DB_USER ,DB_PASS);
     // Conexão inicial sem banco de dados
     $pdo = new PDO(
-        dsn: 'mysql:host='.DB_HOST, 
-        username: DB_USER, 
-        password: DB_PASS
+        dsn: 'mysql:host='.DB_HOST, username: DB_USER, password: DB_PASS
     );
-
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     // Deletar banco de dados se existir
