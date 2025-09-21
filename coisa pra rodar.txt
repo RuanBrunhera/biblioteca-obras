@@ -1,0 +1,7 @@
+docker-compose up -d
+
+docker-compose exec web php /var/www/html/db_schema/cmd_sql.php
+
+
+esse aqui é pra voltar o id de criação pra 8 pra conseguir seguir a ordem adicionar
+docker-compose exec db mysql -u root -proot -e "ALTER TABLE DB_TAREFAS.Obras AUTO_INCREMENT = 8;"

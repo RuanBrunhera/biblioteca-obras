@@ -29,8 +29,8 @@
                 <input type="text" id="titulo" name="titulo" required>
             </div>
             <div class="form-group">
-                <label for="titulo">Autor:</label>
-                <input type="text" id="titulo" name="titulo" required>
+                <label for="autor">Autor:</label>
+                <input type="text" id="autor" name="autor" required>
             </div>
             <div class="form-group">
                 <label for="descricao">Descrição:</label>

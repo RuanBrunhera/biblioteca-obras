@@ -51,8 +51,8 @@
                 <input type="text" id="titulo" name="titulo" value="<?php echo htmlspecialchars($obra_atual['titulo']) ?>" required>
             </div>
             <div class="form-group">
-                <label for="titulo">Autor:</label>
-                <input type="text" id="titulo" name="titulo" value="<?php echo htmlspecialchars($obra_atual['autor']) ?>" required>
+                <label for="autor">Autor:</label>
+                <input type="text" id="autor" name="autor" value="<?php echo htmlspecialchars($obra_atual['autor']) ?>" required>
             </div>
             <div class="form-group">
                 <label for="descricao">Descrição:</label>

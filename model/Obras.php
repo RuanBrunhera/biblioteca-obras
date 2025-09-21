@@ -45,7 +45,7 @@ class Obras
     {
         try {            
             if ($search) {
-                $sql = "SELECT * FROM Obras WHERE titulo LIKE ? OR descricao LIKE ?";
+                $sql = "SELECT * FROM Obras WHERE titulo LIKE ? OR autor LIKE ?";
                 $search = trim(string: $search);
                 $search = "%{$search}%";
                 $stmt = $this->conn->prepare($sql);

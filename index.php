@@ -13,9 +13,9 @@
 </script>
 </head>
 <body>
-    <nav style="width: 100%; justify-content: center; background: #f0f0f0; padding: 10px 0; box-sizing: border-box; display: flex; gap: 20px;">
-        <a href="?page=cadastrar" style="text-decoration: none; color: #333; font-weight: bold;">Cadastrar nova obra</a>
-        <a href="?page=listar" style="text-decoration: none; color: #333; font-weight: bold;">Listar obra</a>
+    <nav>
+        <a href="?page=cadastrar" style="text-decoration: none; color: #ffffffff; font-weight: bold;">Cadastrar nova obra</a>
+        <a href="?page=listar" style="text-decoration: none; color: #ffffffff; font-weight: bold;">Listar obra</a>
     </nav>
     <div id="container" style="height: calc(98vh - 50px); overflow-y: auto; padding: 20px; box-sizing: border-box;">
         <?php
@@ -36,9 +36,6 @@
             }
         ?>
     </div>
-
-
-   
 </body>
 </html>
 

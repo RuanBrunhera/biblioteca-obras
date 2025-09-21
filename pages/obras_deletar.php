@@ -15,7 +15,7 @@
     $obra = new Obras($conn);
     $obra_atual = $obra->consultarPorId( $id);
 
-    if (!$tarefa_atual) {
+    if (!$obra_atual) {
         echo '<p style="color: red; text-align: center;">Obra não encontrada.</p>';
         echo '<p style="text-align: center;"><a href="/">Voltar para a lista de obras</a></p>';
         exit;
@@ -25,6 +25,7 @@
 
     if ($resultado) {               
         header('Location: /?deleted=true');
+        exit;
     } else {
         echo '<p style="color: red; text-align: center;">Erro ao deletar obra. Tente novamente.</p>';
          echo '<p style="text-align: center;"><a href="/">Voltar para a lista de obras</a></p>';
